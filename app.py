@@ -195,5 +195,8 @@ def predictPage():
 
     return render_template('predict.html', pred=pred, disease_name=disease_name, submitted_values=to_predict_dict, text=text)  # Passing submitted_values
 
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    # Set default to 5000 if PORT is not set
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
