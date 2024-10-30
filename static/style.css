@@ -408,6 +408,8 @@ body {
   text-decoration: none;
   border-radius: 5px;
   transition: background-color 0.3s;
+  position: relative;
+  z-index: 20;
 }
 
 .cta-button:hover {
@@ -673,5 +675,9 @@ body {
   }
   .predicted-image {
     margin-top: 1%;
+  }
+
+  .chat-box {
+    width: 90vw;
   }
 }
