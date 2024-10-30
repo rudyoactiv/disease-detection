@@ -6,6 +6,8 @@ import numpy as np
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 from keras.models import load_model
 import cv2
+from threading import Thread
+import time
 
 import tensorflow as tf
 tf.get_logger().setLevel('ERROR')
@@ -196,8 +198,20 @@ def predictPage():
 
     return render_template('predict.html', pred=pred, disease_name=disease_name, submitted_values=to_predict_dict, text=text)  # Passing submitted_values
 
+@app.route('/ping')
+def ping():
+    return 'Ping received', 200
+
+def self_ping():
+    while True:
+        try:
+            requests.get("https://ml-diagnosis.onrender.com/ping")
+            print("Ping sent to self")
+        except Exception as e:
+            print("Error pinging self:", e)
+        time.sleep(12*60)  # 12 minutes in seconds
 
 if __name__ == '__main__':
-    # Set default to 5000 if PORT is not set
     port = int(os.environ.get("PORT", 5000))
+    Thread(target=self_ping, daemon=True).start()
     app.run(host='0.0.0.0', port=port)
