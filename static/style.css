@@ -578,4 +578,19 @@ body {
   .card-content {
     border-radius: 40px;
   }
+
+  .container {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .demo-btn {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+  }
 }
