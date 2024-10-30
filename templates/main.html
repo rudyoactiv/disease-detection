@@ -1,52 +1,60 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <link rel="stylesheet" href="../static/style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Multiple Disease Classification And Prediction System</title>
-  <link rel="icon" href="static/logo1.png" type="image/icon type">
+  <head>
+    <link rel="stylesheet" href="../static/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multiple Disease Classification And Prediction System</title>
+    <link rel="icon" href="static/logo1.png" type="image/icon type" />
+  </head>
 
-</head>
-
-<body>
-  <header>
-    <a href="{{ url_for('home') }}"><img src="static/logo.png" alt="Logo" class="nav-logo" ></a>
-    
-    <nav class="nav-links">
-      <a href="{{ url_for('home') }}">Home</a>
-      <a href="{{ url_for('covidPage') }}">Covid</a>
-      <a href="{{ url_for('diabetesPage') }}">Diabetes</a>
-      <a href="{{ url_for('cancerPage') }}">Breast Cancer</a>
-      <a href="{{ url_for('heartPage') }}">Heart</a>
-      <a href="{{ url_for('kidneyPage') }}">Kidney</a>
-      <a href="{{ url_for('liverPage') }}">Liver</a>
-    </nav>
-
-    <div class="mobile-nav">
-      <a href="{{ url_for('home') }}">Home <img src="/static/right-arrow.svg" alt=""></a>
-      <a href="{{ url_for('covidPage') }}">Covid <img src="/static/right-arrow.svg" alt=""></a>
-      <a href="{{ url_for('kidneyPage') }}">Kidneys <img src="/static/right-arrow.svg" alt=""></a>
-      <a href="{{ url_for('diabetesPage') }}">Diabetes <img src="/static/right-arrow.svg" alt=""></a>
-      <a href="{{ url_for('liverPage') }}">Liver Health <img src="/static/right-arrow.svg" alt=""></a>
-      <a href="{{ url_for('heartPage') }}">Heart Health <img src="/static/right-arrow.svg" alt=""></a>
-      <a href="{{ url_for('cancerPage') }}">Breast Cancer <img src="/static/right-arrow.svg" alt=""></a>
-    </div>
-
-    <div class="hamburger">
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-    </div>
-
-  </header>
-
-  <main>
+  <body>
+    <header>
+      <a href="{{ url_for('home') }}"><img src="static/logo.png" alt="Logo" class="nav-logo"></a>
+      
+      <nav class="nav-links">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('covidPage') }}">Covid</a>
+        <a href="{{ url_for('diabetesPage') }}">Diabetes</a>
+        <a href="{{ url_for('cancerPage') }}">Breast Cancer</a>
+        <a href="{{ url_for('heartPage') }}">Heart</a>
+        <a href="{{ url_for('kidneyPage') }}">Kidney</a>
+        <a href="{{ url_for('liverPage') }}">Liver</a>
+      </nav>
+  
+      <div class="mobile-nav hidden"> <!-- Add 'hidden' class by default -->
+        <a href="{{ url_for('home') }}">Home <img src="/static/right-arrow.svg" alt=""></a>
+        <a href="{{ url_for('covidPage') }}">Covid <img src="/static/right-arrow.svg" alt=""></a>
+        <a href="{{ url_for('kidneyPage') }}">Kidneys <img src="/static/right-arrow.svg" alt=""></a>
+        <a href="{{ url_for('diabetesPage') }}">Diabetes <img src="/static/right-arrow.svg" alt=""></a>
+        <a href="{{ url_for('liverPage') }}">Liver Health <img src="/static/right-arrow.svg" alt=""></a>
+        <a href="{{ url_for('heartPage') }}">Heart Health <img src="/static/right-arrow.svg" alt=""></a>
+        <a href="{{ url_for('cancerPage') }}">Breast Cancer <img src="/static/right-arrow.svg" alt=""></a>
+      </div>
+  
+      <div class="hamburger" id="hamburger-menu"> <!-- Add ID for selection -->
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </header>
+  
+    <main>
       {% block content %}
       {% endblock %}
-  </main>
+    </main>
+  
+    <footer>
+      &copy; 2024 Rudraneel Dutta
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const hamburgerMenu = document.getElementById("hamburger-menu");
+        const mobileNav = document.querySelector(".mobile-nav");
 
-  <footer>
-    &copy; 2024 Rudraneel Dutta
-  </footer>
-</body>
+        hamburgerMenu.addEventListener("click", function () {
+          mobileNav.classList.toggle("hidden"); // Toggle the hidden class
+        });
+      });
+    </script>
+  </body>
 </html>

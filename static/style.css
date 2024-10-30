@@ -552,10 +552,30 @@ body {
 
   }
 
+  .hidden {
+    display: none; /* or use visibility: hidden; */
+  }
+  
 
   .mobile-nav img {
     height: 20px;
     align-self: center;
   }
 
+  .stats-section {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .stat-card {
+    border-radius: 40px;
+  }
+
+  .landing-container {
+    padding: 10px;
+  }
+
+  .card-content {
+    border-radius: 40px;
+  }
 }
