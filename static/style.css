@@ -581,6 +581,14 @@ body {
     font-size: 2rem;
   }
 
+  .LLM {
+    margin-top: 20px;
+  }
+
+  .bottom-chat {
+    width: 100%;
+  }
+
   .mobile-nav a {
     color: white;
     padding: 0 20px;
