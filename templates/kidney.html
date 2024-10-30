@@ -1,0 +1,265 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<div class="container" style="margin-bottom: 175px;">
+    <div style="text-align: center;">
+        <h1>Kidney Disease Predictor</h1>
+    </div>
+    <div class="card" style="border: 5px solid black; padding: 20px;">
+      
+        <form action="{{ url_for('predictPage') }}" method="POST">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input
+                        class="form-control"
+                        id="age"
+                        type="text"
+                        name="age"
+                        placeholder="Age"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="bp">Blood Pressure</label>
+                    <input
+                        class="form-control"
+                        id="bp"
+                        type="text"
+                        name="bp"
+                        placeholder="Blood Pressure"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="al">Albumin</label>
+                    <input
+                        class="form-control"
+                        id="al"
+                        type="text"
+                        name="al"
+                        placeholder="Albumin"
+                    />
+                </div>
+            </div>
+        
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="su">Sugar</label>
+                    <input
+                        class="form-control"
+                        id="su"
+                        type="text"
+                        name="su"
+                        placeholder="Sugar"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="rbc">Red Blood Cells</label>
+                    <input
+                        class="form-control"
+                        id="rbc"
+                        type="text"
+                        name="rbc"
+                        placeholder="Red Blood Cells"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="pc">Pus Cells</label>
+                    <input
+                        class="form-control"
+                        id="pc"
+                        type="text"
+                        name="pc"
+                        placeholder="Pus Cells"
+                    />
+                </div>
+            </div>
+        
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="pcc">Pus Cell Count</label>
+                    <input
+                        class="form-control"
+                        id="pcc"
+                        type="text"
+                        name="pcc"
+                        placeholder="Pus Cell Count"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="ba">Bacteria</label>
+                    <input
+                        class="form-control"
+                        id="ba"
+                        type="text"
+                        name="ba"
+                        placeholder="Bacteria"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="bgr">Blood Glucose</label>
+                    <input
+                        class="form-control"
+                        id="bgr"
+                        type="text"
+                        name="bgr"
+                        placeholder="Blood Glucose"
+                    />
+                </div>
+            </div>
+        
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="bu">Blood Urea</label>
+                    <input
+                        class="form-control"
+                        id="bu"
+                        type="text"
+                        name="bu"
+                        placeholder="Blood Urea"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="sc">Serum Creatinine</label>
+                    <input
+                        class="form-control"
+                        id="sc"
+                        type="text"
+                        name="sc"
+                        placeholder="Serum Creatinine"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="pot">Potassium</label>
+                    <input
+                        class="form-control"
+                        id="pot"
+                        type="text"
+                        name="pot"
+                        placeholder="Potassium"
+                    />
+                </div>
+            </div>
+        
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="wc">White Cells</label>
+                    <input
+                        class="form-control"
+                        id="wc"
+                        type="text"
+                        name="wc"
+                        placeholder="White Cells"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="htn">Hypertension</label>
+                    <input
+                        class="form-control"
+                        id="htn"
+                        type="text"
+                        name="htn"
+                        placeholder="Hypertension"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="dm">Diabetes</label>
+                    <input
+                        class="form-control"
+                        id="dm"
+                        type="text"
+                        name="dm"
+                        placeholder="Diabetes"
+                    />
+                </div>
+            </div>
+        
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="cad">Coronary Artery Disease</label>
+                    <input
+                        class="form-control"
+                        id="cad"
+                        type="text"
+                        name="cad"
+                        placeholder="Coronary Artery Disease"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="pe">Edema</label>
+                    <input
+                        class="form-control"
+                        id="pe"
+                        type="text"
+                        name="pe"
+                        placeholder="Edema"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="ane">Anemia</label>
+                    <input
+                        class="form-control"
+                        id="ane"
+                        type="text"
+                        name="ane"
+                        placeholder="Anemia"
+                    />
+                </div>
+            </div>
+        
+            <div class="buttons">
+                <input type="submit" class="btn btn-info" value="Predict" />
+                ||
+                <button type="button" class="btn btn-success" onclick="populatePositive()">Positive</button>
+                <button type="button" class="btn btn-danger" onclick="populateNegative()">Negative</button>
+            </div>
+        </form>
+        
+
+    </div>
+</div>
+
+<script>
+  function populatePositive() {
+    document.getElementsByName("age")[0].value = 60;
+    document.getElementsByName("bp")[0].value = 85;
+    document.getElementsByName("al")[0].value = 1;
+    document.getElementsByName("su")[0].value = 0;
+    document.getElementsByName("rbc")[0].value = 1;
+    document.getElementsByName("pc")[0].value = 1;
+    document.getElementsByName("pcc")[0].value = 1;
+    document.getElementsByName("ba")[0].value = 1;
+    document.getElementsByName("bgr")[0].value = 180;
+    document.getElementsByName("bu")[0].value = 70;
+    document.getElementsByName("sc")[0].value = 2.0;
+    document.getElementsByName("pot")[0].value = 5.0;
+    document.getElementsByName("wc")[0].value = 7500;
+    document.getElementsByName("htn")[0].value = 1;
+    document.getElementsByName("dm")[0].value = 1;
+    document.getElementsByName("cad")[0].value = 1;
+    document.getElementsByName("pe")[0].value = 1;
+    document.getElementsByName("ane")[0].value = 1;
+  }
+
+  function populateNegative() {
+    document.getElementsByName("age")[0].value = 45;
+    document.getElementsByName("bp")[0].value = 75;
+    document.getElementsByName("al")[0].value = 0;
+    document.getElementsByName("su")[0].value = 0;
+    document.getElementsByName("rbc")[0].value = 0;
+    document.getElementsByName("pc")[0].value = 0;
+    document.getElementsByName("pcc")[0].value = 0;
+    document.getElementsByName("ba")[0].value = 0;
+    document.getElementsByName("bgr")[0].value = 90;
+    document.getElementsByName("bu")[0].value = 15;
+    document.getElementsByName("sc")[0].value = 0.7;
+    document.getElementsByName("pot")[0].value = 4.0;
+    document.getElementsByName("wc")[0].value = 5000;
+    document.getElementsByName("htn")[0].value = 0;
+    document.getElementsByName("dm")[0].value = 0;
+    document.getElementsByName("cad")[0].value = 0;
+    document.getElementsByName("pe")[0].value = 0;
+    document.getElementsByName("ane")[0].value = 0;
+  }
+</script>
+
+{% endblock %}

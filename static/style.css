@@ -1,0 +1,474 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+/* Header Styles */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1e1e1e;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header img {
+  height: 75px; /* Adjust logo size */
+
+}
+
+.nav-links {
+  display: flex;
+  gap: 10px;
+}
+
+a {
+
+  text-decoration: none;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 5px;
+  transition: background 0.3s;
+}
+
+.nav-links a:hover {
+  background: #575757;
+  border-radius: 5px;
+}
+
+/* Main Container */
+
+main {
+  min-height: 90vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.prediction {
+  display: flex;
+  flex-direction: row;
+}
+
+.prediction .left {
+  flex: 1; /* This allows the table to take up 50% of the width */
+  margin-right: 50px; /* Optional: Adds some space between the table and LLM */
+  text-align: left;
+  height: fit-content;
+}
+
+.table {
+  margin-bottom: 50px;
+}
+
+/*.table tbody tr td {
+  border-bottom: 1px solid #000000;
+}*/
+
+.table tbody tr:nth-child(odd) {
+  background-color: #dddddd; /* Light gray for odd rows */
+}
+
+.img-chat {
+  max-width: 600px;
+
+}
+
+.chat-box {
+  min-height: 50vh;
+  max-height: 50vh;
+  border-radius: 10px;
+  margin-top: 20px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.bottom-chat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.input-message {
+  width: 100%;
+  padding: 10px;          /* Adds padding for better spacing */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 10px;     /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin-right: 10px;     /* Space between input and button */
+}
+
+.button-send, .button-find {
+  width: auto;
+  padding: 10px;          /* Adds padding for better spacing */
+  border: none;           /* Removes default border */
+  border-radius: 10px;     /* Rounded corners */
+  background-color: #4CAF50; /* Green background */
+  color: white;           /* White text color */
+  cursor: pointer;        /* Pointer cursor on hover */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+.button-find {
+  background-color: #007bff; /* Blue background */
+  margin-left: 10px; /* Space between buttons */
+}
+
+.button-send:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+.prediction .LLM {
+  flex: 1; /* This allows the LLM div to take up 50% of the width */
+  text-align: left;
+}
+
+.LLM h1 {
+  margin: 0;
+}
+
+
+/* Card Styles */
+.card {
+  background: #fafafa;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 5px;
+}
+
+.form-group label {
+  font-size: 12px;
+}
+
+.form-control {
+  width: calc(100% - 10px); /* Full width with some padding */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+
+.form-control:focus {
+  border-color: #007bff; /* Highlight on focus */
+  outline: none;
+}
+
+/* Form Row Styles */
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.form-row .form-group {
+  flex: 1; /* Take equal space */
+  margin-right: 10px; /* Space between inputs */
+}
+
+.form-row .form-group:last-child {
+  margin-right: 0; /* No margin on the last element */
+}
+
+/* Button Styles */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+  background-color: #007bff;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.btn-success {
+  background-color: #dc3545;
+
+}
+
+.btn-success:hover {
+  background-color: #c82333;
+
+}
+
+.btn-danger {
+  background-color: #28a745;
+
+}
+
+.btn-danger:hover {
+  background-color: #218838;
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  padding: 15px 0;
+  background: #333;
+  color: white;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.prediction-alert {
+  padding: 15px;
+  margin: 15px 0;
+  font-weight: bold;
+  font-size: 1.2em;
+  border-radius: 5px;
+}
+
+.covid-alert {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.normal-alert {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.predicted-image {
+  border: 3px solid;
+  border-color: #dc3545; /* default to red */
+  max-width: 100%;
+  height: auto;
+  margin-top: 50px;
+}
+
+/* Optional CSS for dynamic border color based on prediction */
+.covid-alert + .predicted-image {
+  border-color: red;
+}
+
+.normal-alert + .predicted-image {
+  border-color: green;
+}
+
+
+
+
+/* Global Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+/* Landing Page Styles */
+.landing-container {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  color: white;
+  padding: 60px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  background-color: #28a745;
+  color: white;
+  padding: 15px 30px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #218838;
+}
+
+/* Stats Section */
+.stats-section {
+  padding: 40px 20px;
+  background-color: white;
+  margin-top: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.stats-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.stats-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: row;
+}
+
+.stat-card {
+  color: black;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  max-width: 20vw;
+  min-width: 300px;
+}
+
+.stat-card .title,
+.stat-card .percentage,
+.stat-card .description {
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.card-content {
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  height: 100%;
+}
+
+/* Add specific backgrounds for each stat card */
+.stat-card.diabetes {
+  background-image: url('/static/diabetes.jpg');
+}
+
+.stat-card.cancer {
+  background-image: url('/static/bcan.jpg');
+}
+
+.stat-card.heart {
+  background-image: url('/static/heart.jpg');
+}
+
+.stat-card.kidney {
+  background-image: url('/static/kidney.jpg');
+}
+
+.stat-card.liver {
+  background-image: url('/static/liver.jpg');
+}
+
+.stat-card.covid {
+  background-image: url('/static/covid.jpg');
+}
+
+.percentage {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 10px;
+  position: relative;
+}
+
+.percentage::after {
+  content: 'Accuracy';
+  font-size: 0.8rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+}
+
+.description {
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .hero-section h1 {
+      font-size: 2rem;
+  }
+  .stats-section h2 {
+      font-size: 1.5rem;
+  }
+  .percentage {
+      font-size: 1.5rem;
+  }
+}

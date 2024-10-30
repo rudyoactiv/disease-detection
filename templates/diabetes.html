@@ -1,0 +1,78 @@
+{% extends 'main.html' %}
+{% block content %}
+{% if message %}
+    <div class="alert">{{ message }}</div>
+{% endif %}
+<div class="container">
+    <center><h1>Diabetes Predictor</h1></center>
+    <div class="card" style="border: 5px solid black;">
+        <form action="{{ url_for('predictPage') }}" method="POST">
+            <div class="form-group">
+                <label for="pregnancies">Number of Pregnancies</label>
+                <input class="form-control" id="pregnancies" type="text" name="pregnancies" placeholder="Number of Pregnancies eg. 0">
+            </div>
+            <div class="form-group">
+                <label for="glucose">Glucose (mg/dL)</label>
+                <input class="form-control" id="glucose" type="text" name="glucose" placeholder="Glucose (mg/dL) eg. 80">
+            </div>
+            <div class="form-group">
+                <label for="bloodpressure">Blood Pressure (mmHg)</label>
+                <input class="form-control" id="bloodpressure" type="text" name="bloodpressure" placeholder="Blood Pressure (mmHg) eg. 80">
+            </div>
+            <div class="form-group">
+                <label for="skinthickness">Skin Thickness (mm)</label>
+                <input class="form-control" id="skinthickness" type="text" name="skinthickness" placeholder="Skin Thickness (mm) eg. 20">
+            </div>
+            <div class="form-group">
+                <label for="insulin">Insulin Level (IU/mL)</label>
+                <input class="form-control" id="insulin" type="text" name="insulin" placeholder="Insulin Level (IU/mL) eg. 80">
+            </div>
+            <div class="form-group">
+                <label for="bmi">Body Mass Index (kg/m²)</label>
+                <input class="form-control" id="bmi" type="text" name="bmi" placeholder="Body Mass Index (kg/m²) eg. 23.1">
+            </div>
+            <div class="form-group">
+                <label for="dpf">Diabetes Pedigree Function</label>
+                <input class="form-control" id="dpf" type="text" name="dpf" placeholder="Diabetes Pedigree Function eg. 0.52">
+            </div>
+            <div class="form-group">
+                <label for="age">Age (years)</label>
+                <input class="form-control" id="age" type="text" name="age" placeholder="Age (years) eg. 34">
+            </div>
+            
+
+
+            <div class="buttons">
+                <input type="submit" class="btn btn-info" value="Predict">
+                ||
+                <button type="button" class="btn btn-success" onclick="populatePositive()">Positive</button>
+                <button type="button" class="btn btn-danger" onclick="populateNegative()">Negative</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function populatePositive() {
+        document.getElementById('pregnancies').value = '3';
+        document.getElementById('glucose').value = '150';
+        document.getElementById('bloodpressure').value = '90';
+        document.getElementById('skinthickness').value = '35';
+        document.getElementById('insulin').value = '200';
+        document.getElementById('bmi').value = '32.0';
+        document.getElementById('dpf').value = '0.7';
+        document.getElementById('age').value = '45';
+    }
+
+    function populateNegative() {
+        document.getElementById('pregnancies').value = '0';
+        document.getElementById('glucose').value = '90';
+        document.getElementById('bloodpressure').value = '70';
+        document.getElementById('skinthickness').value = '15';
+        document.getElementById('insulin').value = '50';
+        document.getElementById('bmi').value = '22.5';
+        document.getElementById('dpf').value = '0.2';
+        document.getElementById('age').value = '25';
+    }
+</script>
+{% endblock %}

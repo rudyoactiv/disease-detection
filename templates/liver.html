@@ -1,0 +1,90 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<div class="container">
+    <center><h1>Liver Disease Predictor</h1></center>
+    <div class="card card-body" style="border: 5px solid black;">
+        
+        <form action="{{ url_for('predictPage') }}" method="POST">
+            <div class="form-group">
+                <label for="age">Age (years)</label>
+                <input class="form-control" id="age" type="text" name="Age" placeholder="e.g., 55">
+            </div>
+            <div class="form-group">
+                <label for="total_bilirubin">Total Bilirubin (mg/dL)</label>
+                <input class="form-control" id="total_bilirubin" type="text" name="Total_Bilirubin" placeholder="e.g., 2.3">
+            </div>
+            <div class="form-group">
+                <label for="direct_bilirubin">Direct Bilirubin (mg/dL)</label>
+                <input class="form-control" id="direct_bilirubin" type="text" name="Direct_Bilirubin" placeholder="e.g., 1.2">
+            </div>
+            <div class="form-group">
+                <label for="alkaline_phosphotase">Alkaline Phosphotase (IU/L)</label>
+                <input class="form-control" id="alkaline_phosphotase" type="text" name="Alkaline_Phosphotase" placeholder="e.g., 300">
+            </div>
+            <div class="form-group">
+                <label for="alamine_aminotransferase">Alamine Aminotransferase (IU/L)</label>
+                <input class="form-control" id="alamine_aminotransferase" type="text" name="Alamine_Aminotransferase" placeholder="e.g., 90">
+            </div>
+            <div class="form-group">
+                <label for="aspartate_aminotransferase">Aspartate Aminotransferase (IU/L)</label>
+                <input class="form-control" id="aspartate_aminotransferase" type="text" name="Aspartate_Aminotransferase" placeholder="e.g., 85">
+            </div>
+            <div class="form-group">
+                <label for="total_proteins">Total Proteins (g/dL)</label>
+                <input class="form-control" id="total_proteins" type="text" name="Total_Protiens" placeholder="e.g., 5.5">
+            </div>
+            <div class="form-group">
+                <label for="albumin">Albumin (g/dL)</label>
+                <input class="form-control" id="albumin" type="text" name="Albumin" placeholder="e.g., 2.8">
+            </div>
+            <div class="form-group">
+                <label for="albumin_and_globulin_ratio">Albumin and Globulin Ratio</label>
+                <input class="form-control" id="albumin_and_globulin_ratio" type="text" name="Albumin_and_Globulin_Ratio" placeholder="e.g., 0.8">
+            </div>
+            <div class="form-group">
+                <label for="gender_male">Gender</label>
+                <input class="form-control" id="gender_male" type="text" name="Gender_Male" placeholder="Male: 1, Female: 0">
+            </div>
+        
+            <div class="buttons">
+                <input type="submit" class="btn btn-info" value="Predict">
+                ||
+                <button type="button" class="btn btn-success" onclick="populatePositive()">Positive</button>
+                <button type="button" class="btn btn-danger" onclick="populateNegative()">Negative</button>
+            </div>
+        </form>
+        
+
+    </div>
+</div>
+
+<script>
+    function populatePositive() {
+        document.getElementById('age').value = '65';
+        document.getElementById('total_bilirubin').value = '3.5';
+        document.getElementById('direct_bilirubin').value = '1.8';
+        document.getElementById('alkaline_phosphotase').value = '360';
+        document.getElementById('alamine_aminotransferase').value = '95';
+        document.getElementById('aspartate_aminotransferase').value = '102';
+        document.getElementById('total_proteins').value = '5.0';
+        document.getElementById('albumin').value = '2.3';
+        document.getElementById('albumin_and_globulin_ratio').value = '0.7';
+        document.getElementById('gender_male').value = '1';
+    }
+
+    function populateNegative() {
+        document.getElementById('age').value = '30';
+        document.getElementById('total_bilirubin').value = '0.8';
+        document.getElementById('direct_bilirubin').value = '0.2';
+        document.getElementById('alkaline_phosphotase').value = '140';
+        document.getElementById('alamine_aminotransferase').value = '25';
+        document.getElementById('aspartate_aminotransferase').value = '30';
+        document.getElementById('total_proteins').value = '6.8';
+        document.getElementById('albumin').value = '4.1';
+        document.getElementById('albumin_and_globulin_ratio').value = '1.2';
+        document.getElementById('gender_male').value = '0';
+    }
+</script>
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{
+  "build": {
+      "dockerfile": "Dockerfile"
+  },
+  "routes": [
+      {
+          "src": "/(.*)",
+          "dest": "/app.py"
+      }
+  ]
+}

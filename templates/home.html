@@ -1,0 +1,83 @@
+{% extends 'main.html' %} {% block content %}
+<div class="landing-container">
+  <div class="hero-section">
+    <h1>Predicto: Your Health Companion</h1>
+    <p>
+      Predicto is a health platform that uses machine learning to help you
+      understand your health risks.
+      <br />
+      Get your personalized insights today, with our state-of-the-art risk
+      prediction models.
+    </p>
+    <a href="#stats-section" class="cta-button">Get Started</a>
+  </div>
+
+  <div class="stats-section" id="stats-section">
+    <h2>Our Services</h2>
+    <div class="stats-cards">
+      <a href="{{ url_for('diabetesPage') }}" class="stat-card diabetes">
+        <div class="card-content">
+          <div class="title">Diabetes</div>
+          <p class="percentage">98.25%</p>
+          <p class="description">
+            Diabetes is a chronic condition that occurs when the body cannot
+            effectively use insulin, leading to elevated blood sugar levels.
+          </p>
+        </div>
+      </a>
+      <a href="{{ url_for('cancerPage') }}" class="stat-card cancer">
+        <div class="card-content">
+          <div class="title">Breast Cancer</div>
+          <p class="percentage">98.25%</p>
+          <p class="description">
+            Breast cancer forms in the cells of the breasts and is one of the
+            most common cancers among women. Early detection significantly
+            increases treatment success.
+          </p>
+        </div>
+      </a>
+      <a href="{{ url_for('heartPage') }}" class="stat-card heart">
+        <div class="card-content">
+          <div class="title">Heart Disease</div>
+          <p class="percentage">85.25%</p>
+          <p class="description">
+            Heart disease encompasses various conditions affecting the heart,
+            including coronary artery disease and heart rhythm problems.
+          </p>
+        </div>
+      </a>
+      <a href="{{ url_for('kidneyPage') }}" class="stat-card kidney">
+        <div class="card-content">
+          <div class="title">Kidney Disease</div>
+          <p class="percentage">99%</p>
+          <p class="description">
+            Kidney disease refers to a range of conditions affecting kidney
+            function, leading to the buildup of waste in the body.
+          </p>
+        </div>
+      </a>
+      <a href="{{ url_for('liverPage') }}" class="stat-card liver">
+        <div class="card-content">
+          <div class="title">Liver Disease</div>
+          <p class="percentage">78%</p>
+          <p class="description">
+            Liver disease encompasses various conditions that damage the liver,
+            including hepatitis and fatty liver disease.
+          </p>
+        </div>
+      </a>
+      <a href="{{ url_for('covidPage') }}" class="stat-card covid">
+        <div class="card-content">
+          <div class="title">Covid-19</div>
+          <p class="percentage">95%</p>
+          <p class="description">
+            Covid-19 is a contagious disease caused by the SARS-CoV-2 virus,
+            primarily affecting the respiratory system and can lead to severe
+            health complications.
+          </p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}
