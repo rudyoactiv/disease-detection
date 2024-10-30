@@ -593,4 +593,8 @@ body {
     display: flex;
     gap: 10px;
   }
+
+  .separator {
+    display: none;
+  }
 }
