@@ -588,6 +588,10 @@ body {
     width: 100%;
   }
 
+  .buttons {
+    margin-top: 10px;
+  }
+
   .demo-btn {
     margin-top: 10px;
     display: flex;
@@ -596,5 +600,19 @@ body {
 
   .separator {
     display: none;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .form-control {
+    width: calc(100% - 5px);
+    padding: 5px 0;
+    padding-left: 5px;
+  }
+
+  .form-row .form-group {
+    margin-right: 0;
   }
 }
