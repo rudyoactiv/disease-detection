@@ -595,6 +595,7 @@ body {
   .stats-section {
     background-color: transparent;
     box-shadow: none;
+    padding-top: 0;
   }
 
   .stat-card {
