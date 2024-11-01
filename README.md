@@ -81,8 +81,6 @@ Contributions are welcome! To contribute to this project, please fork the reposi
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
----
-
 ## **Contact**
 
 For any inquiries or feedback, please contact its.rudraneel@gmail.com.
