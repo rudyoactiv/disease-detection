@@ -55,7 +55,7 @@ Open your web browser and navigate to `http://127.0.0.1:5000` to access the appl
 2. **Make Predictions**: Click the "Predict" button to obtain results.
 3. **View Recommendations**: Receive AI-generated advice based on the predictions.
 
-### **Screenshots**
+## **Screenshots**
 
 ### **Home Page**
 
@@ -85,4 +85,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## **Contact**
 
-For any inquiries or feedback, please contact [its.rudraneel@gmail.com].
+For any inquiries or feedback, please contact its.rudraneel@gmail.com.
