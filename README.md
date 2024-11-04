@@ -33,8 +33,14 @@ cd disease-prediction-app
 Create a virtual environment:
 
 ```bash
-conda env create -f environment.yml
+conda create -n disdet python=3.7.12
 conda activate disdet
+```
+
+Install all required packages:
+
+```bash
+pip install -r requirements.txt
 ```
 
 ### **3. Configure API Keys**
@@ -74,7 +80,7 @@ Contributions are welcome! To contribute to this project, please fork the reposi
 
 ## **Links**
 
-- [Documentation](https://github.com/rudyoactiv/ml-diagnosis)  <!-- Replace with actual documentation link -->
+- [Documentation](https://github.com/rudyoactiv/ml-diagnosis)
 - [Issue Tracker](https://github.com/yourusername/disease-prediction-app/issues)
 
 ## **License**
