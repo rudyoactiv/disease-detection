@@ -16,6 +16,8 @@ app = Flask(__name__)
 app.config["UPLOAD_FOLDER"] = "uploads"
 os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
 
+API_KEY = "AIzaSyBEeRHaeIg2gEo5vRHKP7xW2k33blZS2p8"
+
 def generate_content(api_key, prompt):
     url = f'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key={api_key}'
     response = requests.post(url, json={"contents": [{"parts": [{"text": prompt}]}]})
@@ -46,7 +48,7 @@ def predict_covid(image_path):
     return prediction, output_path
 
 def predict(values, dic):
-    api_key = "AIzaSyBEeRHaeIg2gEo5vRHKP7xW2k33blZS2p8"  # Fetch the API key from environment variables
+    api_key = API_KEY  # Fetch the API key from environment variables
     text = ""  # Initialize text to an empty string
 
     if len(values) == 8:
@@ -156,7 +158,7 @@ def covidPage():
                 prompt += "User does not have covid according to X-ray analysis. Congratulate and give advice to stay safe."
 
             # Call the API to get the advice
-            api_key = "AIzaSyBEeRHaeIg2gEo5vRHKP7xW2k33blZS2p8"
+            api_key = API_KEY
             suggestion = generate_content(api_key, prompt)
             text = suggestion['candidates'][0]['content']['parts'][0]['text'] if suggestion and 'candidates' in suggestion and suggestion['candidates'] else ""
 
@@ -172,7 +174,7 @@ def chat():
             return {"error": "No message provided"}, 400
         
         # Call your generative AI API to get a response (placeholder implementation)
-        response_text = generate_content("AIzaSyBEeRHaeIg2gEo5vRHKP7xW2k33blZS2p8", user_message)  # Make sure to pass the correct prompt
+        response_text = generate_content(API_KEY, user_message)  # Make sure to pass the correct prompt
         if response_text:
             return {"response": response_text['candidates'][0]['content']['parts'][0]['text']}, 200
         else:
