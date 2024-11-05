@@ -24,7 +24,7 @@ app = Flask(__name__)
 app.config["UPLOAD_FOLDER"] = "uploads"
 os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
 
-API_KEY = "AIzaSyBEeRHaeIg2gEo5vRHKP7xW2k33blZS2p8"
+API_KEY = "Your API Key Here"
 
 
 def generate_content(api_key, prompt):
